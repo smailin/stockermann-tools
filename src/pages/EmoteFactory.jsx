@@ -89,13 +89,14 @@ export default function EmoteFactory() {
     setOriginalImage(null);
     setResizedImages({});
   };
-<Helmet>
+
+  return (
+    <div className="flex flex-col min-h-screen bg-gray-950 text-white">
+      <Helmet>
   <title>Redimensionar Emotes Twitch e Discord Online - Stockermann Tools</title>
   <meta name="description" content="Converta e redimensione imagens automaticamente para os tamanhos de emote da Twitch (112px, 56px, 28px) e Discord. Download grátis." />
   <meta name="keywords" content="redimensionar emotes, tamanho emote twitch, criar emotes discord, resizer emote" />
 </Helmet>
-  return (
-    <div className="flex flex-col min-h-screen bg-gray-950 text-white">
       <Header />
 
       <main className="flex-1 container mx-auto p-8 flex flex-col items-center">

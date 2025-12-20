@@ -14,11 +14,7 @@ import PropertiesPanel from '../components/EditorParts/PropertiesPanel';
 
 export default function Editor() {
   const { user } = useAuth();
-  <Helmet>
-  <title>Editor de Layouts OBS Online Grátis - Stockermann Tools</title>
-  <meta name="description" content="Crie overlays, cenas e layouts para sua live no OBS Studio direto no navegador. Sem instalar nada. Exporte em PNG ou HTML." />
-  <meta name="keywords" content="criar overlay twitch, editor overlay obs, layout stream grátis, maker overlay" />
-</Helmet>
+  
   // Estados
   const [canvasSize, setCanvasSize] = useState({ width: 1920, height: 1080 });
   const [elements, setElements] = useState([]); 
@@ -171,6 +167,11 @@ export default function Editor() {
 
   return (
     <div className="flex flex-col h-screen bg-gray-950 text-white overflow-hidden">
+      <Helmet>
+  <title>Editor de Layouts OBS Online Grátis - Stockermann Tools</title>
+  <meta name="description" content="Crie overlays, cenas e layouts para sua live no OBS Studio direto no navegador. Sem instalar nada. Exporte em PNG ou HTML." />
+  <meta name="keywords" content="criar overlay twitch, editor overlay obs, layout stream grátis, maker overlay" />
+</Helmet>
       <Header />
       
       <div className="flex flex-1 overflow-hidden relative">

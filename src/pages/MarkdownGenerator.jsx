@@ -122,12 +122,15 @@ export default function MarkdownGenerator() {
     navigator.clipboard.writeText(markdown);
     toast.success("Copiado! Cole na Twitch.");
   };
-<Helmet>
-  <title>Gerador de Bio e Descrição para Twitch (Markdown) - Stockermann Tools</title>
-  <meta name="description" content="Gere descrições organizadas, com ícones e formatação para o painel 'Sobre Mim' do seu canal da Twitch. Copie e cole fácil." />
-</Helmet>
+
   return (
     <div className="min-h-screen bg-gray-950 text-white flex flex-col">
+
+      <Helmet>
+  <title>Gerador de Bio e Descrição para Twitch (Markdown) - Stockermann Tools</title>
+  <meta name="description" content="Gere descrições organizadas, com ícones e formatação para o painel 'Sobre Mim' do seu canal da Twitch. Copie e cole fácil." />
+      </Helmet>
+      
       <Header />
 
       <main className="flex-1 p-4 md:p-8 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8">
