@@ -5,6 +5,7 @@ import { saveAs } from 'file-saver';
 import toast from 'react-hot-toast';
 import { FaCloudUploadAlt, FaDownload, FaFileArchive, FaTrash } from 'react-icons/fa';
 import Header from '../components/Layout/Header';
+import { Helmet } from 'react-helmet-async';
 
 export default function EmoteFactory() {
   const [originalImage, setOriginalImage] = useState(null);
@@ -88,7 +89,11 @@ export default function EmoteFactory() {
     setOriginalImage(null);
     setResizedImages({});
   };
-
+<Helmet>
+  <title>Redimensionar Emotes Twitch e Discord Online - Stockermann Tools</title>
+  <meta name="description" content="Converta e redimensione imagens automaticamente para os tamanhos de emote da Twitch (112px, 56px, 28px) e Discord. Download grátis." />
+  <meta name="keywords" content="redimensionar emotes, tamanho emote twitch, criar emotes discord, resizer emote" />
+</Helmet>
   return (
     <div className="flex flex-col min-h-screen bg-gray-950 text-white">
       <Header />

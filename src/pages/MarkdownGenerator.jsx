@@ -10,6 +10,7 @@ import {
 } from 'react-icons/fa';
 import Footer from '../components/Layout/Footer'; 
 import toast from 'react-hot-toast'; 
+import { Helmet } from 'react-helmet-async';
 
 const QUICK_EMOJIS = [
   "🎮", "🔴", "📹", "🎙️", "🎧", "👾", "🕹️", "🎲", 
@@ -121,7 +122,10 @@ export default function MarkdownGenerator() {
     navigator.clipboard.writeText(markdown);
     toast.success("Copiado! Cole na Twitch.");
   };
-
+<Helmet>
+  <title>Gerador de Bio e Descrição para Twitch (Markdown) - Stockermann Tools</title>
+  <meta name="description" content="Gere descrições organizadas, com ícones e formatação para o painel 'Sobre Mim' do seu canal da Twitch. Copie e cole fácil." />
+</Helmet>
   return (
     <div className="min-h-screen bg-gray-950 text-white flex flex-col">
       <Header />

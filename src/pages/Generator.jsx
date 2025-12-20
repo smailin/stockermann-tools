@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { FaCopy, FaMagic } from 'react-icons/fa';
 import Header from '../components/Layout/Header';
+import { Helmet } from 'react-helmet-async';
 
 export default function Generator() {
   const [formData, setFormData] = useState({
@@ -11,7 +12,10 @@ export default function Generator() {
     pcSpecs: '',
     socials: ''
   });
-
+<Helmet>
+  <title>Gerador de Bio e Descrição para Twitch (Markdown) - Stockermann Tools</title>
+  <meta name="description" content="Gere descrições organizadas, com ícones e formatação para o painel 'Sobre Mim' do seu canal da Twitch. Copie e cole fácil." />
+</Helmet>
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };

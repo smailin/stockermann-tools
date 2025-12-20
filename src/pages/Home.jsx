@@ -3,10 +3,15 @@ import Header from '../components/Layout/Header';
 import Footer from '../components/Layout/Footer';
 import { FaRobot, FaMagic, FaTools } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 export default function Home() {
   const channelName = "stockermann2"; 
-
+<Helmet>
+  <title>Stockermann Tools | Ferramentas Grátis para Streamers</title>
+  <meta name="description" content="Suíte de ferramentas gratuitas para criadores de conteúdo: Editor de Overlays para OBS, Gerador de Bio para Twitch e Redimensionador de Emotes." />
+  <meta name="keywords" content="streamer tools, overlay obs grátis, gerador bio twitch, emotes twitch, ferramentas stream" />
+</Helmet>
   return (
     <div className="flex flex-col min-h-screen bg-gray-950 text-white">
       <Header />

@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { toPng } from 'html-to-image';
 import { saveAs } from 'file-saver';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 // Imports
 import { supabase } from '../services/supabase';     
@@ -13,7 +14,11 @@ import PropertiesPanel from '../components/EditorParts/PropertiesPanel';
 
 export default function Editor() {
   const { user } = useAuth();
-  
+  <Helmet>
+  <title>Editor de Layouts OBS Online Grátis - Stockermann Tools</title>
+  <meta name="description" content="Crie overlays, cenas e layouts para sua live no OBS Studio direto no navegador. Sem instalar nada. Exporte em PNG ou HTML." />
+  <meta name="keywords" content="criar overlay twitch, editor overlay obs, layout stream grátis, maker overlay" />
+</Helmet>
   // Estados
   const [canvasSize, setCanvasSize] = useState({ width: 1920, height: 1080 });
   const [elements, setElements] = useState([]); 

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://stockermann-tools.vercel.app/sitemap.xml
