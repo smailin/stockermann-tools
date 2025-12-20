@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background-color: #111827;
+  color: white;
+}
+.btn-tool {
+  @apply p-2 hover:bg-gray-700 rounded text-gray-300 hover:text-white transition-colors;
+}
