@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { FaSignOutAlt, FaTools, FaMagic, FaRobot } from 'react-icons/fa';
+import { FaSignOutAlt, FaTools, FaMagic, FaRobot, FaCoffee } from 'react-icons/fa'; // <--- Adicionei FaCoffee
 
 export default function Header() {
   const { user, signOut } = useAuth();
@@ -14,7 +14,7 @@ export default function Header() {
     <header className="h-16 border-b border-gray-800 bg-[#09090b]/80 backdrop-blur-md sticky top-0 z-50">
       <div className="container mx-auto h-full flex items-center justify-between px-4">
         
-        {/* LOGO COM IMAGEM */}
+        {/* LOGO */}
         <Link to="/" className="flex items-center gap-3 group">
           <img 
             src="/logo.png" 
@@ -24,7 +24,7 @@ export default function Header() {
           <span className="font-bold text-lg tracking-tight hidden md:block text-white">STOCKERMANN</span>
         </Link>
 
-        {/* RESTO DO HEADER MANTIDO IGUAL... */}
+        {/* NAVEGAÇÃO CENTRAL */}
         <nav className="flex items-center gap-1 md:gap-2">
           <Link to="/editor" className={`${linkClass} ${isActive('/editor')}`}>
             <FaTools /> <span className="hidden md:inline">Editor</span>
@@ -37,7 +37,24 @@ export default function Header() {
           </Link>
         </nav>
 
+        {/* ÁREA DIREITA (KO-FI + USUÁRIO) */}
         <div className="flex items-center gap-4">
+          
+          {/* BOTÃO KO-FI (NOVO) */}
+          <a 
+            href="https://ko-fi.com/stockermann" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hidden sm:flex items-center gap-2 bg-yellow-600/10 text-yellow-500 border border-yellow-600/50 hover:bg-yellow-600 hover:text-white px-3 py-2 rounded-lg text-sm font-bold transition-all"
+            title="Pague um café!"
+          >
+            <FaCoffee /> <span className="hidden lg:inline">Apoiar</span>
+          </a>
+
+          {/* DIVISÓRIA PEQUENA */}
+          <div className="h-6 w-px bg-gray-800 mx-1"></div>
+
+          {/* USUÁRIO / LOGIN */}
           {user ? (
             <div className="flex items-center gap-3 bg-gray-900 border border-gray-800 pl-3 pr-1 py-1 rounded-full">
               <span className="text-xs text-gray-300 font-medium truncate max-w-[100px]">{user.user_metadata?.full_name || user.email}</span>
