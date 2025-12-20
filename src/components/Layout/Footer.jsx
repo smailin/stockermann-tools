@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaYoutube, FaTwitter, FaHashtag, FaEnvelope, FaPaperPlane, FaTwitch } from 'react-icons/fa';
+import { FaYoutube, FaTwitter, FaHashtag, FaEnvelope, FaPaperPlane, FaTwitch, FaGoogleDrive } from 'react-icons/fa'; // Importei o ícone do Drive
 import { supabase } from '../../services/supabase';
 
 export default function Footer() {
@@ -32,29 +32,40 @@ export default function Footer() {
     <footer className="bg-gray-900 border-t border-gray-800 pt-12 pb-8 mt-auto">
       <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12">
         
-        {/* COLUNA 1: MARCA */}
-        <div className="space-y-4">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center font-bold text-white">S</div>
+        {/* COLUNA 1: MARCA + DRIVE */}
+        <div className="space-y-6">
+          <div className="flex items-center gap-3">
+            <img src="/logo.png" alt="StockerMann" className="h-8 w-auto opacity-80" />
             <h2 className="font-bold text-xl text-white">STOCKERMANN</h2>
           </div>
           <p className="text-gray-400 text-sm">
             Ferramentas gratuitas para streamers. Desenvolvido com carinho para a comunidade.
           </p>
+          
+          {/* BOTÃO MÍDIA KIT (GOOGLE DRIVE) */}
+          <div>
+            <a 
+              href="https://drive.google.com/drive/folders/1EGPgEuHiHQLZx3ViSlHedJDsSgQkta_z?usp=drive_link" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 font-bold text-sm border border-green-900/50 bg-green-900/20 px-4 py-2 rounded-lg transition-colors"
+            >
+              <FaGoogleDrive /> Acessar Mídia Kit (Drive)
+            </a>
+          </div>
         </div>
 
         {/* COLUNA 2: SOCIAL */}
         <div>
           <h3 className="text-white font-bold mb-4 uppercase tracking-wider text-sm">Minhas Redes</h3>
           <ul className="space-y-3">
-            {/* LINK DA TWITCH ADICIONADO AQUI */}
             <li>
               <a href="https://www.twitch.tv/stockermann2" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-400 hover:text-purple-500 transition-colors">
                 <FaTwitch size={20} /> Twitch
               </a>
             </li>
             <li>
-              <a href="https://www.youtube.com/@stockermannlive" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-400 hover:text-red-500 transition-colors">
+              <a href="https://youtube.com/@stockermann" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-400 hover:text-red-500 transition-colors">
                 <FaYoutube size={20} /> YouTube
               </a>
             </li>

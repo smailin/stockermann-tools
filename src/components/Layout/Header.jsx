@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { FaUserCircle, FaSignOutAlt, FaTools, FaMagic, FaRobot } from 'react-icons/fa';
+import { FaSignOutAlt, FaTools, FaMagic, FaRobot } from 'react-icons/fa';
 
 export default function Header() {
   const { user, signOut } = useAuth();
@@ -14,13 +14,17 @@ export default function Header() {
     <header className="h-16 border-b border-gray-800 bg-[#09090b]/80 backdrop-blur-md sticky top-0 z-50">
       <div className="container mx-auto h-full flex items-center justify-between px-4">
         
-        {/* LOGO */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center font-bold text-white shadow-lg group-hover:scale-105 transition-transform">S</div>
-          <span className="font-bold text-lg tracking-tight hidden md:block">STOCKERMANN.COM.BR</span>
+        {/* LOGO COM IMAGEM */}
+        <Link to="/" className="flex items-center gap-3 group">
+          <img 
+            src="/logo.png" 
+            alt="StockerMann" 
+            className="h-10 w-auto object-contain group-hover:scale-105 transition-transform" 
+          />
+          <span className="font-bold text-lg tracking-tight hidden md:block text-white">STOCKERMANN</span>
         </Link>
 
-        {/* NAVEGAÇÃO CENTRAL (Adicionado Dimensionador) */}
+        {/* RESTO DO HEADER MANTIDO IGUAL... */}
         <nav className="flex items-center gap-1 md:gap-2">
           <Link to="/editor" className={`${linkClass} ${isActive('/editor')}`}>
             <FaTools /> <span className="hidden md:inline">Editor</span>
@@ -33,7 +37,6 @@ export default function Header() {
           </Link>
         </nav>
 
-        {/* ÁREA DO USUÁRIO */}
         <div className="flex items-center gap-4">
           {user ? (
             <div className="flex items-center gap-3 bg-gray-900 border border-gray-800 pl-3 pr-1 py-1 rounded-full">
