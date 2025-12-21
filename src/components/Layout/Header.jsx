@@ -13,19 +13,19 @@ export default function Header() {
   const buttonClass = "flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-bold transition-all border border-transparent";
 
   return (
-    <header className="h-16 border-b border-gray-800 bg-[#09090b]/95 backdrop-blur-md sticky top-0 z-50">
-      <div className="container mx-auto h-full flex items-center justify-between px-4">
+    <header className="h-auto md:h-16 border-b border-gray-800 bg-[#09090b]/95 backdrop-blur-md sticky top-0 z-50">
+      <div className="container mx-auto h-full flex flex-col md:flex-row items-center justify-between px-4 py-2 md:py-0">
         
         {/* LOGO */}
-        <Link to="/" className="flex items-center gap-3 group">
+        <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
           <img src="/logo.png" alt="StockerMann" className="h-10 w-auto object-contain" />
           <span className="font-bold text-lg tracking-tight hidden md:block text-white">STOCKERMANN</span>
         </Link>
 
         {/* NAVEGAÇÃO */}
-        <nav className="hidden md:flex items-center">
+        <nav className="hidden md:flex items-center flex-1 justify-center overflow-x-auto">
           {/* FERRAMENTAS */}
-          <div className="flex items-center">
+          <div className="flex items-center gap-0">
             <span className={groupLabelClass}>Ferramentas</span>
             <Link to="/editor" className={`${linkClass} ${isActive('/editor')}`}>
               🛠️ <span className="hidden lg:inline">Editor de Layout</span>
@@ -48,20 +48,20 @@ export default function Header() {
         </nav>
 
         {/* LINKS EXTERNOS & LOGIN */}
-        <div className="flex items-center gap-2">
-          <div className="flex items-center gap-2 mr-2 border-r border-gray-700/30 pr-3">
-             <a href="https://medium.com/@stockermann" target="_blank" rel="noopener" title="Blog" className={externalLinkClass}>📝 <span className="hidden lg:inline">Blog</span></a>
-             <a href="https://ko-fi.com/stockermann/shop" target="_blank" rel="noopener" title="Loja Ko-Fi" className={externalLinkClass}>🛍️ <span className="hidden lg:inline">Loja Ko-Fi</span></a>
-             <a href="https://ko-fi.com/stockermann" target="_blank" rel="noopener" title="Apoiar" className={externalLinkClass}>☕ <span className="hidden lg:inline">Apoiar</span></a>
+        <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 mr-2 border-r border-gray-700/30 pr-2">
+             <a href="https://medium.com/@stockermann" target="_blank" rel="noopener" title="Blog" className={externalLinkClass}>📝 <span className="hidden md:inline">Blog</span></a>
+             <a href="https://ko-fi.com/stockermann/shop" target="_blank" rel="noopener" title="Loja Ko-Fi" className={externalLinkClass}>🛍️ <span className="hidden md:inline">Loja Ko-Fi</span></a>
+             <a href="https://ko-fi.com/stockermann" target="_blank" rel="noopener" title="Apoiar" className={externalLinkClass}>☕ <span className="hidden md:inline">Apoiar</span></a>
           </div>
 
           {user ? (
-            <div className="flex items-center gap-2">
-               <span className="text-gray-500 text-xs hidden lg:block">{user.email}</span>
-              <button onClick={signOut} className={`${buttonClass} text-red-400 border-red-900/30 hover:bg-red-500/10 hover:border-red-500/50`}>SAIR</button>
+            <div className="flex items-center gap-1">
+               <span className="text-gray-500 text-xs hidden xl:block truncate max-w-[150px]">{user.email}</span>
+              <button onClick={signOut} className={`${buttonClass} text-red-400 border-red-900/30 hover:bg-red-500/10 hover:border-red-500/50 whitespace-nowrap`}>SAIR</button>
             </div>
           ) : (
-            <Link to="/login" className={`${buttonClass} bg-blue-600 text-white hover:bg-blue-500 border-blue-500/50 hover:border-blue-400`}>
+            <Link to="/login" className={`${buttonClass} bg-blue-600 text-white hover:bg-blue-500 border-blue-500/50 hover:border-blue-400 whitespace-nowrap`}>
               Login
             </Link>
           )}
