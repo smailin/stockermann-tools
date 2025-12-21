@@ -1,39 +1,36 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
-
-// Pages
-import Home from './pages/Home';
-import Editor from './pages/Editor';
-import MarkdownGenerator from './pages/MarkdownGenerator'; // <--- O NOME CERTO
-import Login from './pages/Login';
-import EmoteFactory from './pages/EmoteFactory';
-
-// Auth
+import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
+
+// --- PÁGINAS CONFIRMADAS ---
+import Home from './pages/Home';
+import Login from './pages/Login';
+import GamesList from './pages/GamesList'; 
+import EmoteFactory from './pages/EmoteFactory'; // <--- Nome corrigido!
+
+// --- PÁGINAS DO EDITOR E GERADOR DE BIO ---
+import Editor from './pages/Editor';
+import Generator from './pages/MarkdownGenerator'; 
 
 function App() {
   return (
     <AuthProvider>
-      <Router>
-        <div className="min-h-screen bg-gray-950 text-white font-sans antialiased">
-          <Toaster 
-            position="bottom-right" 
-            toastOptions={{ 
-              style: { background: '#18181b', color: '#fff', border: '1px solid #27272a' } 
-            }} 
-          />
-          
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/editor" element={<Editor />} />
-            {/* Rota atualizada para usar o arquivo correto */}
-            <Route path="/generator" element={<MarkdownGenerator />} /> 
-            <Route path="/emotes" element={<EmoteFactory />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
-        </div>
-      </Router>
+      <Routes>
+        {/* --- ROTAS QUE FUNCIONAM --- */}
+        <Route path="/" element={<Home />} />
+        <Route path="/games" element={<GamesList />} />
+        <Route path="/login" element={<Login />} />
+        
+        {/* Rota de Emotes (Agora com o nome certo do arquivo) */}
+        <Route path="/emotes" element={<EmoteFactory />} />
+
+        {/* --- ROTAS DO EDITOR E BIO --- */}
+        <Route path="/editor" element={<Editor />} />
+        <Route path="/generator" element={<Generator />} />
+
+        {/* Se a página não existir, volta pra Home */}
+        <Route path="*" element={<Home />} />
+      </Routes>
     </AuthProvider>
   );
 }
