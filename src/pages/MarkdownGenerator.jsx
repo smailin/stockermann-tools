@@ -11,6 +11,7 @@ import {
 import Footer from '../components/Layout/Footer'; 
 import toast from 'react-hot-toast'; 
 import { Helmet } from 'react-helmet-async';
+import AdUnit from '../components/AdUnit';
 
 const QUICK_EMOJIS = [
   "🎮", "🔴", "📹", "🎙️", "🎧", "👾", "🕹️", "🎲", 
@@ -244,7 +245,7 @@ export default function MarkdownGenerator() {
           )}
 
           <div className="w-full h-64 bg-gray-900 border border-gray-800 border-dashed rounded-xl flex items-center justify-center text-gray-600 font-bold text-xs">
-            PUBLICIDADE
+            <AdUnit slotId="1883173635" />
           </div>
         </div>
 
